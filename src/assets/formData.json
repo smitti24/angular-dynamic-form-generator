@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Full name",
+    "type": "text",
+    "placeholder": "John Do",
+    "options": {
+      "placeholder": "John Do"
+      }
+    },
+  {
+    "label": "Zipcode",
+    "type": "text",
+    "options": {
+      "length": 5,
+      "valueType": "numeric"
+      }
+    },
+  {
+    "label": "Address",
+    "type": "address"
+  }
+]

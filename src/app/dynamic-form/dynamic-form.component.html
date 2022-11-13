@@ -1,0 +1,34 @@
+<form [formGroup]="myForm" class="form-container" (submit)="onSubmit()">
+  <ng-container *ngFor="let control of config.controls">
+    <div [ngSwitch]="control?.type" class="form-body">
+      <!-- <app-custom-text-box *ngSwitchCase="'textbox'" [label]="control.label" [formControlName]="control?.name!" [placeholder]="control?.placeholder!"
+        [minLength]="control.options?.maxWidth!" [maxWidth]="control.options?.maxWidth!"></app-custom-text-box> -->
+
+        <div>
+          <label>{{control?.label}}<span *ngIf="control?.required"> *</span> </label>
+        </div>
+
+        <ng-container *ngSwitchCase="'textbox'">
+          <input [type]="isFreeTextOrNumber(control)" [formControlName]="control?.name!" [placeholder]="control?.placeholder" [minlength]="control?.options?.minLength!" [maxlength]="control?.options?.maxLength!" [required]="control?.required!"/>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'select'">
+          <select [formControlName]="control?.name!">
+            <option selected ngValue="null">Please select {{control?.name}}</option>
+            <option *ngFor="let option of control?.selectMenu?.options! | keyvalue" >{{option.value}}</option>
+          </select>
+        </ng-container>
+
+    </div>
+  </ng-container>
+  <ng-container>
+    <button type="submit">Submit</button>
+  </ng-container>
+
+
+  <ng-container>
+    <pre>{{myForm.value | json}}</pre>
+    <p>Is Valid: {{myForm.valid}}</p>
+  </ng-container>
+
+</form>
