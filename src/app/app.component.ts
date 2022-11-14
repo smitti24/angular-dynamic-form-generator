@@ -27,7 +27,7 @@ export class AppComponent {
           placeholder: 'Enter your zipcode',
           options: {
             maxLength: 5,
-            valueType: FormControlsType.NUMBERIC
+            valueType: FormControlsType.NUMERIC
           }
         },
         {

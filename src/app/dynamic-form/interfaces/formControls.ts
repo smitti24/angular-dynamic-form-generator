@@ -1,6 +1,6 @@
 export enum FormControlsType {
   'TEXTBOX' = 'textbox',
-  'NUMBERIC' = 'number',
+  'NUMERIC' = 'number',
   'SELECT' = 'select',
   'RADIO' = 'radio',
   'CHECKBOX' = 'checkbox',

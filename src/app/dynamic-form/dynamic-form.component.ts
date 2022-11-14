@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { ClientFormData, FormControls, FormControlsType } from './interfaces/formControls';
 
@@ -6,6 +6,7 @@ import { ClientFormData, FormControls, FormControlsType } from './interfaces/for
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DynamicFormComponent implements OnInit {
   @Input() config: ClientFormData;
@@ -39,6 +40,6 @@ export class DynamicFormComponent implements OnInit {
 
   isFreeTextOrNumber(control: FormControls): string {
     if (control?.options?.valueType === undefined) return control.type;
-    return control.type === FormControlsType.TEXTBOX && control.options?.valueType === FormControlsType.NUMBERIC ? FormControlsType.NUMBERIC : FormControlsType.TEXTBOX;
+    return control.type === FormControlsType.TEXTBOX && control.options?.valueType === FormControlsType.NUMERIC ? FormControlsType.NUMERIC : FormControlsType.TEXTBOX;
   }
 }
